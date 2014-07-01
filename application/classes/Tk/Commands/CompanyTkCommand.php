@@ -50,17 +50,7 @@ class CompanyTkCommand {
 
             // Получаем локальные компании
             $resultListLocal = $this->getLocalCompanies($params);
-            /*
-            $citiesForSig = array($params['cityFrom'], $params['cityTo']);;
-            asort($citiesForSig);
-            $citySig = implode(':', $citiesForSig);
-            $resultListLocal = $this->getCitySig( $citySig );
-            if( $resultListLocal === null ){
-                $resultListLocal = $this->getLocalCompanies($params);
-                $this->saveToCityCache( $citySig, $resultListLocal);
-                echo 'bad';
-            }
-            */
+
             $result = array_merge($resultListApi, $resultListLocal);
             $this->saveToCache( $sig, $result );
             print_r($result);
